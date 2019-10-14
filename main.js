@@ -1,0 +1,1 @@
+document.getElementById("faq").onclick = () => { window.open("http://web.mit.edu/admissions/faq/")}

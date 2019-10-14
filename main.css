@@ -1,0 +1,130 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500");
+@import url('https://fonts.googleapis.com/css?family=Nova+Flat');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+/* MAIN */
+body {
+  background-color: #f4f4f4;
+}
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);
+  margin: 0px 7px;
+  padding: 5px;
+  border-radius: 3px;
+}
+#head {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);
+  background-color: #fcfcfc;
+  position: absolute;
+  height: 56px;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+#head #mymit {
+  height: 100%;
+  width: fit-content;
+  font-size: 40px;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+#head #mymit #my {
+  position: relative;
+  top: -13px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  font-weight: 400;
+  color: #c9a269;
+}
+#head #mymit svg {
+  padding: 5px;
+}
+#head #mymit svg .primary {
+  fill: #2e3136;
+}
+#head #mymit svg .secondary {
+  fill: #c9a269;
+}
+#head #mymit:hover #my {
+  color: #2e3136;
+}
+#head #mymit:hover svg .primary {
+  fill: #c9a269;
+}
+#head #mymit:hover svg .secondary {
+  fill: #E3D0B6;
+}
+#head #welcome {
+  position: absolute;
+  top: 5px;
+  padding: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 35px;
+  left: calc(50% - 125px);
+}
+#head #account {
+  position: absolute;
+  top: 5px;
+  padding: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 35px;
+  right: 0px;
+}
+#head #account #app {
+  position: relative;
+  top: -10px;
+  font-size: 20px;
+}
+#head #account #number {
+  position: relative;
+  top: -10px;
+  color: white;
+  font-size: 20px;
+  background-color: #c9a269;
+  border-radius: 10px;
+  padding: 3px 8px;
+}
+#head #account #logout {
+  padding: 3px 6px;
+  font-size: 35px;
+  cursor: pointer;
+}
+#sidebar {
+  background-color: #fcfcfc;
+  position: absolute;
+  left: 30px;
+  top: calc((100% - 400px) / 2);
+  width: 60px;
+  height: 400px;
+}
+#sidebar hr {
+  border: none;
+  border-top: 3px double #E3D0B6;
+  overflow: visible;
+  background-color: #fcfcfc;
+}
+#sidebar .tab-icon {
+  position: relative;
+  left: 7px;
+  margin: 20px 4px;
+  font-size: 35px;
+  color: #2e3136;
+  cursor: pointer;
+}
+#sidebar .tab-icon:hover {
+  color: #c9a269;
+}
+#sidebar #faq {
+  font-family: "Roboto", sans-serif;
+  left: 9px;
+  position: relative;
+  bottom: -11px;
+  margin: 4px;
+  color: #2e3136;
+}
+#sidebar #faq:hover {
+  color: #f54f43;
+  cursor: pointer;
+}

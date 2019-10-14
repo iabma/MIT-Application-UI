@@ -1,0 +1,174 @@
+/* FONTS */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500");
+@import url('https://fonts.googleapis.com/css?family=Nova+Flat');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+/* MAIN */
+
+@background-color      : @slight;
+@dark                  : rgb(46, 49, 54);
+@slight                : rgb(244, 244, 244);
+@light                 : rgb(252, 252, 252);
+@red                   : #f54f43;
+@admissions-theme      : rgb(201, 162, 105);
+@admissions-theme-light: #E3D0B6;
+@main-font             : "Roboto",
+sans-serif;
+@radius             : 3px;
+@default-text-color : white;
+@highlight          : @red;
+@transition-anim    : cubic-bezier(.29, .87, .7, 1.02);
+@shadow             : 0 2px 5px 0 rgba(0, 0, 0, 0.2),
+0 2px 7px 0 rgba(0, 0, 0, 0.19);
+
+body {
+    background-color: @background-color;
+}
+
+.card {
+    box-shadow   : @shadow;
+    margin       : 0px 7px;
+    padding      : 5px;
+    border-radius: @radius
+}
+
+#head {
+    box-shadow      : @shadow;
+    background-color: @light;
+    position        : absolute;
+    height          : 56px;
+    width           : 100%;
+    left            : 0px;
+    top             : 0px;
+
+    #mymit {
+        height     : 100%;
+        width      : fit-content;
+        font-size  : 40px;
+        font-family: @main-font;
+        cursor     : pointer;
+
+        #my {
+            position: relative;
+            top: -13px;
+            padding-bottom: 2px;
+            padding-left  : 8px;
+            font-weight   : 400;
+            color         : @admissions-theme;
+        }
+
+        svg {
+            padding: 5px;
+
+            .primary {
+                fill: @dark;
+            }
+
+            .secondary {
+                fill: @admissions-theme;
+            }
+        }
+    }
+
+    #mymit:hover {
+        #my {
+            color: @dark;
+        }
+
+        svg {
+            .primary {
+                fill: @admissions-theme;
+            }
+
+            .secondary {
+                fill: @admissions-theme-light;
+            }
+        }
+    }
+
+    #welcome {
+        position   : absolute;
+        top        : 5px;
+        padding    : 4px;
+        font-family: @main-font;
+        font-weight: 300;
+        font-size  : 35px;
+        left       : ~"calc(50% - 125px)";
+    }
+
+    #account {
+        position   : absolute;
+        top        : 5px;
+        padding    : 4px;
+        font-family: @main-font;
+        font-weight: 300;
+        font-size  : 35px;
+        right       : 0px;
+
+        #app {
+            position: relative;
+            top: -10px;
+            font-size: 20px;
+        }
+        
+        #number {
+            position: relative;
+            top: -10px;
+            color: white;
+            font-size: 20px;
+            background-color: @admissions-theme;
+            border-radius: 10px;
+            padding: 3px 8px;
+        }
+
+        #logout {
+            padding: 3px 6px;
+            font-size: 35px;
+            cursor: pointer;
+        }
+    }
+}
+
+#sidebar {
+    background-color: @light;
+    position        : absolute;
+    left            : 30px;
+    top             : ~"calc((100% - 400px) / 2)";
+    width           : 60px;
+    height          : 400px;
+
+    hr {
+        border: none;
+        border-top: 3px double @admissions-theme-light;
+        overflow: visible;
+        background-color: @light;
+    }
+
+    .tab-icon {
+        position: relative;
+        left: 7px;
+        margin: 20px 4px;
+        font-size: 35px;
+        color: @dark;
+        cursor: pointer;
+    }
+
+    .tab-icon:hover {
+        color: @admissions-theme;
+    }
+
+    #faq {
+        font-family: "Roboto", sans-serif;
+        left: 9px;
+        position: relative;
+        bottom: -11px;
+        margin: 4px;
+        color: @dark;
+    }
+
+    #faq:hover {
+        color: @red;
+        cursor: pointer;
+    }
+}
