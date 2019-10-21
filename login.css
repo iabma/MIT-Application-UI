@@ -1,0 +1,93 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500");
+@import url('https://fonts.googleapis.com/css?family=Nova+Flat');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+/* MAIN */
+body {
+  background-color: #f4f4f4;
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
+}
+canvas {
+  display: block;
+}
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ebebeb;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  filter: blur(1px);
+}
+.flipper {
+  border-top: 2px solid #E3D0B6;
+  position: absolute;
+  padding: 6px;
+  background-color: #fcfcfc;
+  transition: 0.8s cubic-bezier(0.29, 0.87, 0.7, 1.02);
+  width: 250px;
+  left: calc(50% - 125px);
+  border-radius: 3px;
+}
+#username {
+  top: 40%;
+  height: 40px;
+}
+#username #user-label {
+  background-color: #fcfcfc;
+  padding: 0px 3px;
+  border-radius: 2px;
+  width: fit-content;
+  color: gray;
+  pointer-events: none;
+  transition: 0.3s cubic-bezier(0.29, 0.87, 0.7, 1.02);
+  position: relative;
+  left: 5px;
+  top: 20px;
+  font-size: 16px;
+  z-index: 2;
+}
+#username .entry {
+  color: #2e3136;
+  position: relative;
+  top: -7px;
+  padding: 3px;
+  font-size: 24px;
+  height: 27px;
+  width: calc(100% - 6px);
+  background-color: #fcfcfc;
+  border: 1px solid #fcfcfc;
+  border-radius: 3px;
+  outline: none;
+  transition: 0.3s cubic-bezier(0.29, 0.87, 0.7, 1.02);
+}
+#mymit {
+  position: absolute;
+  top: 30%;
+  left: calc(50% - 83px);
+  height: 100%;
+  width: fit-content;
+  font-size: 40px;
+  font-family: "Roboto", sans-serif;
+  cursor: default;
+}
+#mymit #my {
+  position: relative;
+  top: -13px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  font-weight: 400;
+  color: #c9a269;
+}
+#mymit svg {
+  padding: 5px;
+}
+#mymit svg .primary {
+  fill: #2e3136;
+}
+#mymit svg .secondary {
+  fill: #c9a269;
+}

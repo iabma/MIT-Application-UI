@@ -3,19 +3,152 @@
 @import url('https://fonts.googleapis.com/css?family=Nova+Flat');
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 /* MAIN */
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: #f4f4f4;
 }
 .card {
+  display: inline-block;
+  width: 200px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background-color: #fcfcfc;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);
-  margin: 0px 7px;
-  padding: 5px;
+  margin: 7px 7px;
+  padding: 10px;
+  border-radius: 3px;
+  transition: 0.3s cubic-bezier(0.29, 0.87, 0.7, 1.02);
+  vertical-align: top;
+}
+.card:hover {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
+}
+.label {
+  background-color: #fcfcfc;
+  padding: 0px 3px;
+  border-radius: 2px;
+  width: fit-content;
+  color: gray;
+  pointer-events: none;
+  transition: 0.3s cubic-bezier(0.29, 0.87, 0.7, 1.02);
+  position: relative;
+  left: 5px;
+  top: 16px;
+  font-size: 16px;
+  z-index: 2;
+}
+.entry {
+  overflow: hidden;
+  color: #383b36;
+  position: relative;
+  top: -7px;
+  padding: 6px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  height: 18px;
+  width: calc(100% - 6px);
+  background-color: #fcfcfc;
+  border: 1px solid #fcfcfc;
+  border-left: 3px solid lightgrey;
+  border-radius: 3px;
+  outline: none;
+  transition: 0.3s cubic-bezier(0.29, 0.87, 0.7, 1.02);
+}
+.erequired {
+  border-left: 3px solid #f54f43;
+}
+.f {
+  margin: 4px;
+}
+.choice {
+  cursor: pointer;
+}
+.drop-prev {
+  overflow: hidden;
+  color: grey;
+  position: relative;
+  top: -7px;
+  padding: 6px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  height: 18px;
+  width: calc(100% - 6px);
+  background-color: #fcfcfc;
+  border: 1px solid #fcfcfc;
+  border-bottom: 3px solid lightgrey;
+  border-radius: 3px;
+  outline: none;
+  transition: 0.3s cubic-bezier(0.29, 0.87, 0.7, 1.02);
+}
+.drequired {
+  border-bottom: 3px solid #f54f43;
+}
+.ditem {
+  color: #383b36;
+  display: block;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.29, 0.87, 0.7, 1.02);
+  padding: 6px;
+}
+.ditem:hover {
+  background-color: lightgray;
+  color: white;
+}
+.dropdown {
+  display: none;
+  position: relative;
+  width: 100%;
+  border: 1px solid gray;
   border-radius: 3px;
 }
+.dropdown hr {
+  margin: 0px 10px;
+  border: none;
+  border-top: 1px solid lightgray;
+  overflow: visible;
+  background-color: #fcfcfc;
+}
+#container {
+  z-index: 0;
+  position: absolute;
+  left: 145px;
+  top: 97px;
+  width: calc(100% - 185px);
+}
+#container .content {
+  position: relative;
+  color: #383b36;
+  font-size: 48px;
+  margin: 15px 0px;
+}
+#container #info {
+  margin-top: 0px;
+}
+#container #writing .card {
+  width: 500px;
+}
+#container #writing .entry {
+  resize: vertical;
+  width: calc(100% - 14px);
+  height: 200px;
+  min-height: 100px;
+  min-width: 350px;
+  overflow: scroll;
+  font-size: 14px;
+}
+#container #shadow .card {
+  width: 400px;
+}
+#container #help .card {
+  width: 500px;
+}
 #head {
+  z-index: 2;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);
   background-color: #fcfcfc;
-  position: absolute;
+  position: fixed;
   height: 56px;
   width: 100%;
   left: 0px;
@@ -40,13 +173,13 @@ body {
   padding: 5px;
 }
 #head #mymit svg .primary {
-  fill: #2e3136;
+  fill: #383b36;
 }
 #head #mymit svg .secondary {
   fill: #c9a269;
 }
 #head #mymit:hover #my {
-  color: #2e3136;
+  color: #383b36;
 }
 #head #mymit:hover svg .primary {
   fill: #c9a269;
@@ -93,7 +226,7 @@ body {
 }
 #sidebar {
   background-color: #fcfcfc;
-  position: absolute;
+  position: fixed;
   left: 30px;
   top: calc((100% - 400px) / 2);
   width: 60px;
@@ -110,21 +243,34 @@ body {
   left: 7px;
   margin: 20px 4px;
   font-size: 35px;
-  color: #2e3136;
+  color: #383b36;
   cursor: pointer;
 }
 #sidebar .tab-icon:hover {
   color: #c9a269;
 }
-#sidebar #faq {
+#sidebar #l-faq {
   font-family: "Roboto", sans-serif;
   left: 9px;
   position: relative;
   bottom: -11px;
   margin: 4px;
-  color: #2e3136;
+  color: #383b36;
 }
-#sidebar #faq:hover {
+#sidebar #l-faq:hover {
   color: #f54f43;
   cursor: pointer;
+}
+.l {
+  cursor: pointer;
+}
+.l:hover {
+  color: #c9a269;
+}
+a {
+  color: #383b36;
+  font-weight: bold;
+}
+a:hover {
+  color: #f54f43;
 }

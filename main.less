@@ -7,7 +7,7 @@
 /* MAIN */
 
 @background-color      : @slight;
-@dark                  : rgb(46, 49, 54);
+@dark                  : rgb(56, 59, 54);
 @slight                : rgb(244, 244, 244);
 @light                 : rgb(252, 252, 252);
 @red                   : #f54f43;
@@ -22,21 +22,181 @@ sans-serif;
 @shadow             : 0 2px 5px 0 rgba(0, 0, 0, 0.2),
 0 2px 7px 0 rgba(0, 0, 0, 0.19);
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: @background-color;
 }
 
 .card {
-    box-shadow   : @shadow;
-    margin       : 0px 7px;
-    padding      : 5px;
-    border-radius: @radius
+    display         : inline-block;
+    width           : 200px; //minmax(min-content, 300px);
+    font-family     : @main-font;
+    font-size       : 16px;
+    background-color: @light;
+    box-shadow      : @shadow;
+    margin          : 7px 7px;
+    padding         : 10px;
+    border-radius   : @radius;
+    transition      : .3s @transition-anim;
+    vertical-align  : top;
+}
+
+.card:hover {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4); //rgba(201, 162, 105, 1)
+}
+
+.label {
+    background-color: @light;
+    padding         : 0px 3px;
+    border-radius   : 2px;
+    width           : fit-content;
+    color           : gray;
+    pointer-events  : none;
+    transition      : .3s @transition-anim;
+    position        : relative;
+    left            : 5px;
+    top             : 16px;
+    font-size       : 16px;
+    z-index         : 2;
+}
+
+.entry {
+    overflow        : hidden;
+    color           : @dark;
+    position        : relative;
+    top             : -7px;
+    padding         : 6px;
+    font-family     : @main-font;
+    font-size       : 16px;
+    height          : 18px;
+    width           : ~"calc(100% - 6px)";
+    background-color: @light;
+    border          : 1px solid @light;
+    border-left     : 3px solid lightgrey;
+    border-radius   : @radius;
+    outline         : none;
+    transition      : .3s @transition-anim;
+}
+
+.erequired {
+    border-left: 3px solid @red;
+}
+
+.f {
+    margin: 4px;
+}
+
+.choice {
+    cursor: pointer;
+}
+
+.drop-prev {
+    overflow        : hidden;
+    color           : grey;
+    position        : relative;
+    top             : -7px;
+    padding         : 6px;
+    font-family     : @main-font;
+    font-size       : 16px;
+    height          : 18px;
+    width           : ~"calc(100% - 6px)";
+    background-color: @light;
+    border          : 1px solid @light;
+    border-bottom   : 3px solid lightgrey;
+    border-radius   : @radius;
+    outline         : none;
+    transition      : .3s @transition-anim;
+}
+
+.drequired {
+    border-bottom: 3px solid @red;
+}
+
+.ditem {
+    color     : @dark;
+    display   : block;
+    cursor    : pointer;
+    transition: .3s @transition-anim;
+    padding   : 6px;
+}
+
+.ditem:hover {
+    background-color: lightgray;
+    color           : white;
+}
+
+.dropdown {
+    display        : none;
+    position       : relative;
+    width          : 100%;
+    //top          : -8px;
+    border         : 1px solid gray;
+    border-radius  : @radius;
+
+    hr {
+        margin          : 0px 10px;
+        border          : none;
+        border-top      : 1px solid lightgray;
+        overflow        : visible;
+        background-color: @light;
+    }
+}
+
+#container {
+    z-index : 0;
+    position: absolute;
+    left    : 145px;
+    top     : 97px;
+    width   : ~"calc(100% - 185px)";
+
+    .content {
+        position: relative;
+        color    : @dark;
+        font-size: 48px;
+        margin: 15px 0px;
+    }
+
+    #info {
+        margin-top: 0px;
+    }
+
+    #writing {
+        .card {
+            width: 500px;
+        }
+
+        .entry {
+            resize: vertical;
+            width: ~"calc(100% - 14px)";
+            height: 200px;
+            min-height: 100px;
+            min-width: 350px;
+            overflow: scroll;
+            font-size: 14px;
+        }
+    }
+
+    #shadow {
+        .card {
+            width: 400px;
+        }
+    }
+
+    #help {
+        .card {
+            width: 500px;
+        }
+    }
 }
 
 #head {
+    z-index         : 2;
     box-shadow      : @shadow;
     background-color: @light;
-    position        : absolute;
+    position        : fixed;
     height          : 56px;
     width           : 100%;
     left            : 0px;
@@ -50,8 +210,8 @@ body {
         cursor     : pointer;
 
         #my {
-            position: relative;
-            top: -13px;
+            position      : relative;
+            top           : -13px;
             padding-bottom: 2px;
             padding-left  : 8px;
             font-weight   : 400;
@@ -104,71 +264,88 @@ body {
         font-family: @main-font;
         font-weight: 300;
         font-size  : 35px;
-        right       : 0px;
+        right      : 0px;
 
         #app {
-            position: relative;
-            top: -10px;
+            position : relative;
+            top      : -10px;
             font-size: 20px;
         }
-        
+
         #number {
-            position: relative;
-            top: -10px;
-            color: white;
-            font-size: 20px;
+            position        : relative;
+            top             : -10px;
+            color           : white;
+            font-size       : 20px;
             background-color: @admissions-theme;
-            border-radius: 10px;
-            padding: 3px 8px;
+            border-radius   : 10px;
+            padding         : 3px 8px;
         }
 
         #logout {
-            padding: 3px 6px;
+            padding  : 3px 6px;
             font-size: 35px;
-            cursor: pointer;
+            cursor   : pointer;
         }
     }
 }
 
 #sidebar {
     background-color: @light;
-    position        : absolute;
+    position        : fixed;
     left            : 30px;
     top             : ~"calc((100% - 400px) / 2)";
     width           : 60px;
     height          : 400px;
 
     hr {
-        border: none;
-        border-top: 3px double @admissions-theme-light;
-        overflow: visible;
+        border          : none;
+        border-top      : 3px double @admissions-theme-light;
+        overflow        : visible;
         background-color: @light;
     }
 
     .tab-icon {
-        position: relative;
-        left: 7px;
-        margin: 20px 4px;
+        position : relative;
+        left     : 7px;
+        margin   : 20px 4px;
         font-size: 35px;
-        color: @dark;
-        cursor: pointer;
+        color    : @dark;
+        cursor   : pointer;
     }
 
     .tab-icon:hover {
         color: @admissions-theme;
     }
 
-    #faq {
+    #l-faq {
         font-family: "Roboto", sans-serif;
-        left: 9px;
-        position: relative;
-        bottom: -11px;
-        margin: 4px;
-        color: @dark;
+        left       : 9px;
+        position   : relative;
+        bottom     : -11px;
+        margin     : 4px;
+        color      : @dark;
     }
 
-    #faq:hover {
-        color: @red;
+    #l-faq:hover {
+        color : @red;
         cursor: pointer;
     }
+}
+
+.l {
+    cursor: pointer;
+}
+
+.l:hover {
+    color: @admissions-theme;
+}
+
+a {
+    color: @dark;
+    font-weight: bold;
+}
+
+a:hover {
+    color: @red;
 }
